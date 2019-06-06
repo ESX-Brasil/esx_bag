@@ -12,7 +12,7 @@ ESX.RegisterUsableItem('bag', function(source)
     if not HasBag then
         TriggerEvent('esx_bag:InsertBag', source)
     else
-        TriggerClientEvent('esx:showNotification', source, '~r~Você já tem uma bolsa em você.')
+        TriggerClientEvent('esx:showNotification', source, _U('already_bag'))
     end
 end)
 
@@ -140,7 +140,7 @@ AddEventHandler('esx_bag:PutItem', function(id, item, label, count, type)
 		        end)
             end
         else
-            TriggerClientEvent('esx:showNotification', src, '~r~Você só pode ter ' .. Config.MaxItemCount .. ' itens diferentes em sua bolsa')
+            TriggerClientEvent('esx:showNotification', src, _U('you_can_only_have') .. Config.MaxItemCount .. _U('different_items_in_your_bag'))
         end
     end)
 end)
@@ -155,7 +155,7 @@ AddEventHandler('esx_bag:PickUpBag', function(id)
 
      for i=1, #xPlayers, 1 do
         TriggerClientEvent('esx_bag:SetOntoPlayer', src, id)
-	TriggerClientEvent('esx:showNotification', src, 'Pressione ~b~[F5]~w~ para acessa sua bolsa.')
+	TriggerClientEvent('esx:showNotification', src, _U('bag_access'))
         TriggerClientEvent('esx_bag:ReSync', xPlayers[i], id)
      end
 end)

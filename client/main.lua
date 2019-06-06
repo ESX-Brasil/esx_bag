@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
     end
 
-		-- On restart check down below.
+		-- Na reinicialização, verifique abaixo.
 
     while true do
 		if HasBag = true
@@ -167,7 +167,7 @@ function Bag()
 
     ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'lel',
         {
-            title    = 'Bolsa',
+            title    = _U('bag_you'),
             align    = 'left',
             elements = elements
         }, function(data, menu)
@@ -273,7 +273,7 @@ function TakeItem()
 
         ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'lels',
         {
-            title    = 'Bolsa',
+            title    = _U('bag_you'),
             align    = 'left',
             elements = elements
         }, function(data, menu)
@@ -319,7 +319,7 @@ function PutItem()
 
         ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'lel3',
         {
-            title    = 'Bolsa',
+            title    = _U('bag_you'),
             align    = 'left',
             elements = elements
         }, function(data, menu)
@@ -352,8 +352,8 @@ Citizen.CreateThread(function()
                 wait = 5
 
 
-                Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.45, '~g~[E]~w~ para pegar o bolsa')
-                Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.35, '~o~[N]~w~ para pesquisar a bolsa')
+                Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.45, _U('bag_pickup'))
+                Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.35, _U('bag_search'))
 
                 if IsControlJustReleased(0, Keys['E']) then
                     HasBag = true
@@ -373,8 +373,8 @@ Citizen.CreateThread(function()
                         TakeItem()
 
                     wait = 5
-                    Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.45, '~g~[E]~w~ para pegar o bolsa')
-                    Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.35, '~o~[N]~w~ para pesquisar a bolsa')
+                    Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.45, _U('bag_pickup'))
+                    Draw3DText(Bags[i].id.coords.x, Bags[i].id.coords.y, Bags[i].id.coords.z + 0.35, _U('bag_search'))
 
                         if IsControlJustReleased(0, Keys['E']) then
                             HasBag = true
@@ -400,7 +400,7 @@ Citizen.CreateThread(function()
             Citizen.Wait(wait)
         end
     end)
-
+-- Abrir sua bolsa
 Citizen.CreateThread(function()
     while true do
         Wait(5)

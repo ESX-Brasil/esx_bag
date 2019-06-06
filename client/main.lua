@@ -15,6 +15,7 @@ ESX 			    			= nil
 local HasBag = false
 local Bags = {}
 local BagId = false
+local isPlayerDead = false
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -25,7 +26,23 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
     end
 
-    -- Na reinicialização, verifique abaixo.
+		-- On restart check down below.
+
+    while true do
+		if HasBag = true
+			if IsPlayerDead(PlayerId()) then
+				if isPlayerDead == false then
+					isPlayerDead = true
+					DropBag()
+				end
+			else
+				if isPlayerDead == true then
+					isPlayerDead = false
+				end
+			end
+		end
+        Citizen.Wait(100)
+    end
 
     if ESX.IsPlayerLoaded() then
         ESX.TriggerServerCallback('esx_bag:getAllBags', function(bags)

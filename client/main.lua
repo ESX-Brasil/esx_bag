@@ -3,11 +3,28 @@ ESX = nil
 local HasBag = false
 local Bags = {}
 local BagId = false
+local isPlayerDead = false
 
 Citizen.CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
+	end
+
+	while true do
+	if HasBag = true
+		if IsPlayerDead(PlayerId()) then
+			if isPlayerDead == false then
+				isPlayerDead = true
+				DropBag()
+			end
+		else
+			if isPlayerDead == true then
+				isPlayerDead = false
+			end
+		end
+	end
+			Citizen.Wait(100)
 	end
 
 	while ESX.GetPlayerData().job == nil do

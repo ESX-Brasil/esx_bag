@@ -12,7 +12,7 @@ Citizen.CreateThread(function()
 	end
 
 	while true do
-	if HasBag = true
+	if HasBag == true then
 		if IsPlayerDead(PlayerId()) then
 			if isPlayerDead == false then
 				isPlayerDead = true
